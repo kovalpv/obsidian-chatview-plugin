@@ -1,0 +1,41 @@
+{
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "dev:w": "concurrently \"node esbuild.config.mjs\" \"yarn copyAndWatchMainJS\" \"yarn copyAndWatchStylesJS\" \"yarn copyAndWatchManifestJS\"",
+    "copyAndWatchMainJS": "yarn copyMainJS -w",
+    "copyAndWatchStylesJS": "yarn copyStylesJS -w",
+    "copyAndWatchManifestJS": "yarn copyManifestJS -w",
+    "copyMainJS": "cpx \"dist\\main.js\" \"test-vault\\.obsidian\\plugins\\obsidian-chatview-plugin\"",
+    "copyStylesJS": "cpx \"dist\\styles.css\" \"test-vault\\.obsidian\\plugins\\obsidian-chatview-plugin\"",
+    "copyManifestJS": "cpx \"manifest.json\" \"test-vault\\.obsidian\\plugins\\obsidian-chatview-plugin\"",
+    "build": "concurrently \"tsc -noEmit -skipLibCheck && node esbuild.config.mjs production\" \"yarn copyMainJS\" \"yarn copyStylesJS\" \"yarn copyManifestJS\"",
+    "build:p": "node esbuild.config.mjs production",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "test": "jest",
+    "format": "prettier src/ --write"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/jest": "^29.5.14",
+    "builtin-modules": "^4.0.0",
+    "concurrently": "^9.1.0",
+    "cpx": "^1.5.0",
+    "esbuild-plugin-alias": "^0.2.1",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
+    "jest": "^29.7.0",
+    "obsidian": "^1.7.2",
+    "prettier": "3.3.3",
+    "ts-jest": "^29.2.5",
+    "typescript-eslint": "^8.13.0",
+    "vite": "^5.4.10"
+  },
+  "name": "ls",
+  "version": "1.0.0",
+  "main": "src/main.ts",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "editor:toggle-checklist-status": [],
+  "plugin-reloader:refresh": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "plugin-reloader:obsidian-chatview-plugin": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ]
+}
